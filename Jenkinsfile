@@ -7,5 +7,19 @@ pipeline {
                 echo 'dev branch'
             }
         }
+        stage('only on dev') {
+            steps {
+                sh """
+                echo "Running Unit Tests on dev branch"
+                """
+            }
+        }
+        stage('only on nonprod') {
+            steps {
+                sh """
+                echo "Running Unit Tests on non prod branch"
+                """
+            }
+        }
     }
 }
