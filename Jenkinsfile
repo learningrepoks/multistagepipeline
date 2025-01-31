@@ -27,7 +27,7 @@ pipeline {
                 """
             }
         }
-         stage('only on nonprod') {
+         stage('only on prod') {
              when {
                 branch 'prod'
             }
