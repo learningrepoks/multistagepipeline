@@ -13,7 +13,7 @@ pipeline {
             }
             steps {
                 sh """
-                echo "Running Unit Tests on dev branch"
+                echo "${BRANCH_NAME}"
                 """
             }
         }
