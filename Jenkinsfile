@@ -8,6 +8,9 @@ pipeline {
             }
         }
         stage('only on dev') {
+             when {
+                branch 'dev'
+            }
             steps {
                 sh """
                 echo "Running Unit Tests on dev branch"
@@ -15,6 +18,9 @@ pipeline {
             }
         }
         stage('only on nonprod') {
+             when {
+                branch 'nonprod'
+            }
             steps {
                 sh """
                 echo "Running Unit Tests on non prod branch"
