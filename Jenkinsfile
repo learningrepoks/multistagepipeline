@@ -5,6 +5,7 @@ pipeline {
         stage('Hello') {
             steps {
                 echo "${BRANCH_NAME}"
+                sh 'printenv'
             }
         }
         stage('only on dev') {
