@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'dev branch'
+                echo "${BRANCH_NAME}"
             }
         }
         stage('only on dev') {
