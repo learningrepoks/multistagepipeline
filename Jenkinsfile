@@ -27,5 +27,15 @@ pipeline {
                 """
             }
         }
+         stage('only on nonprod') {
+             when {
+                branch 'prod'
+            }
+            steps {
+                sh """
+                echo "Running Unit Tests on non prod branch"
+                """
+            }
+        }
     }
 }
