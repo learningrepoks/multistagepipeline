@@ -8,6 +8,9 @@ pipeline {
             }
         }
         stage('only on dev') {
+             when {
+                branch 'dev'
+            }
             steps {
                 sh """
                 echo "Running Unit Tests on dev branch"
