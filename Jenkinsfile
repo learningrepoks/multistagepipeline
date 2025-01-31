@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'dev branch'
+                echo "${BRANCH_NAME}"
+                sh 'printenv'
             }
         }
         stage('only on dev') {
@@ -13,13 +14,23 @@ pipeline {
             }
             steps {
                 sh """
-                echo "Running Unit Tests on dev branch"
+                echo "${BRANCH_NAME}"
                 """
             }
         }
         stage('only on nonprod') {
              when {
                 branch 'nonprod'
+            }
+            steps {
+                sh """
+                echo "Running Unit Tests on non prod branch"
+                """
+            }
+        }
+         stage('only on prod') {
+             when {
+                branch 'prod'
             }
             steps {
                 sh """
